@@ -8,13 +8,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/:id/related/', (req, res) => {
+app.get('/:id/related', (req, res) => {
   const { id } = req.params;
   db.getRelatedProducts(id, (err, response) => {
     if (err) {
       res.status(404).send(err);
     } else {
-      console.log(response);
       res.status(200).send(response);
     }
   });
@@ -27,24 +26,23 @@ app.get('/:id/styles', (req, res) => {
       console.log('could not fetch styles!', err);
       res.status(404).send(err);
     } else {
-      console.log(response[0]);
-      res.send(response);
+      res.status(200).send(response);
     }
   });
 });
 
 app.get('/products/:id', (req, res) => {
   const { id } = req.params;
-  if (req.params.id !== null)
-  {db.getProdInfo(id, (err, response) => {
+  db.getProdInfo(id, (err, response) => {
     if (err) {
       res.status(404).send(err);
     } else {
-      console.log(response.rows);
-      res.send(response.rows);
+      res.status(200).send(response.rows);
     }
   });
-} else {
+});
+
+app.get('/productlist', (req, res) => {
   db.getProductsList((err, response) => {
     if (err) {
       res.status(404).send(err);
@@ -52,7 +50,6 @@ app.get('/products/:id', (req, res) => {
       res.send(response);
     }
   });
-}
 });
 
 app.get('/cart/:userToken', (req, res) => {

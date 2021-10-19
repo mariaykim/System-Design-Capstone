@@ -53,28 +53,6 @@ const getRelatedProducts = function(id, callback) {
 }
 
 const getStyles = function(id, callback) {
-  // const query = `SELECT styles.productId,
-  //   jsonb_agg('hello',
-  //     jsonb_build_object(
-  //       'style_id',styles.id,
-  //       'name', styles.name,
-  //       'sale_price', styles.sale_price,
-  //       'original_price', styles.original_price,
-  //       'default?', styles.default_style,
-  //     jsonb_agg(jsonb_build_object(
-  //       'thumbnail_url', photos.thumbnail_url ,
-  //        'url', photos.url)),
-  //     jsonb_agg(jsonb_build_object(
-  //       skus.id, json_build_object(
-  //         'quantity', skus.quantity,
-  //         'size', skus.size)))
-  //         ))
-  // FROM ((styles LEFT OUTER JOIN photos ON styles.id = photos.styleId) INNER JOIN skus ON styles.id=skus.styleId) WHERE styles.productId = ${id} group by styles.productId`;
-
-  // jsonb_agg(jsonb_build_object(jsonb_agg(jsonb_build_object('size', skus.size, 'quantity', skus.quantity)) as skus.id)) as skus
-
-  // const query = `SELECT styles.productId, styles.id, styles.name, styles.sale_price, styles.original_price, styles.default_style, jsonb_agg(jsonb_build_object('thumbnail_url', photos.thumbnail_url , 'url', photos.url)) as photos, jsonb_agg(jsonb_build_object(skus.id, json_build_object('quantity', skus.quantity, 'size', skus.size))) as skus
-  // FROM ((styles LEFT OUTER JOIN photos ON styles.id = photos.styleId) INNER JOIN skus ON styles.id=skus.styleId) WHERE styles.productId = ${id} group by styles.productId, styles.id`;
 
   const query =
 
