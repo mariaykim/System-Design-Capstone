@@ -2,6 +2,8 @@
 
 ## Product Overview API
 
+Query times optimization and performance tuning of an e-commerce API products microservice back-end
+
 <br>
 
 # Contributor
@@ -16,7 +18,11 @@
 
 # Project Overview
 
-<br><br>
+In this project, a RESTful API was built to support existing legacy front-end codebase. PostgresQL was selected for the database management system to ensure data integrity and concurrency when product information is being retrieved and inventory count is updated in all references. An Express server received and sent HTTP requests with initial query times of 3s dropping to 15ms with database indexing and auto-caching techniques. Test driven development with Jest and supertest allowed for responses from the database to be validated.
+
+This application is deployed on two AWS EC2 to separate the databse and server. Further improvements to this project will look into scalability and more intensive load testing.
+
+<br>
 
 # Tech Stack
 
